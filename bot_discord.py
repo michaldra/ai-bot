@@ -131,6 +131,8 @@ async def ai(ctx):
     if ctx.message.attachments == [""]:
         await ctx.send("Nie wykryto załączonego obrazka")
     else:
+        for attachment in ctx.message.attachments:
+            await(attachment.save(f"ai-imgs/{attachment.filename}"))
          
 
-bot.run("gucia")
+bot.run("gaci")
