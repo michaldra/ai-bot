@@ -3,6 +3,7 @@ import bot_logic
 import random
 import requests
 import os
+import ai_thing
 from discord.ext import commands
 
 intents = discord.Intents.default()
@@ -128,11 +129,12 @@ async def eko(ctx):
 
 @bot.command()
 async def ai(ctx):
-    if ctx.message.attachments == [""]:
+    if len(ctx.message.attachments) == 0:
         await ctx.send("Nie wykryto załączonego obrazka")
     else:
         for attachment in ctx.message.attachments:
-            await(attachment.save(f"ai-imgs/{attachment.filename}"))
+            await(attachment.save(f"ai_imgs/{attachment.filename}"))
+            await ctx.send(ai_thing.detect_bird(f"ai_imgs/{attachment.filename}", "keras_model.h5", "labels.txt"))
          
 
-bot.run("gaci")
+bot.run("amogus")

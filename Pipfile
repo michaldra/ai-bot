@@ -8,8 +8,8 @@ name = "pypi"
 numpy = "*"
 keras = "*"
 requests = "*"
-tensorflow = "*"
 pillow = "*"
+tensorflow = "==2.12.1"
 
 [dev-packages]
 
